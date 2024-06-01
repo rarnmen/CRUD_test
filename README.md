@@ -24,7 +24,7 @@ class OrdenEstado:
 ```
 La lógica de la base de datos se describe la siguiente figura 
 
-![](./doc/image/database.png)
+![](./doc/image/database.jpg)
 
 Cuando un registro de una orden se realiza, se crea un estado asociado y esa registro pasa por un proceso de ETL para transformar los datos y cargar el base de datos summary_data. En esta ultima base de datos, hay dos tablas ordenes y productos donde se carga la data procesada.
 
