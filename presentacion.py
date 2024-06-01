@@ -14,7 +14,7 @@ estado_caso_uso = EstadoCasoUso(repo_estado)
 
 
 
-@app.route('/orden/create', methods=['POST'])
+@app.route('/orden/crear', methods=['POST'])
 def crear_orden():
     data = request.json
     orden = Orden(**data)
