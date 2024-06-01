@@ -23,26 +23,26 @@ def crear_orden():
         trigger_dag('etl', nueva_orden.id)
     except Exception as e:
         print(e)
-    return jsonify(nueva_orden.__dict__)
+    return jsonify(nueva_orden.__dict__), 201
 
 @app.route('/orden/eliminar', methods=['GET'])
 def eliminar_orden():
     id = request.args.get('id')
     eliminado = orden_caso_uso.eliminar_orden(id)
     print(trigger_dag('etl'))
-    return {'data': eliminado}
+    return {'data': eliminado},200
 
 @app.route('/orden/list', methods=['GET'])
 def orden_list():
     list_ = orden_caso_uso.ordenes()
-    return jsonify({'data':list_})
+    return jsonify({'data':list_}),200
 
 @app.route('/orden/actualizar', methods=['POST'])
 def actualizar_orden():
     data = request.json
     orden = Orden(**data)
     update = orden_caso_uso.actualizar_orden(orden)
-    return jsonify(update.__dict__)
+    return jsonify(update.__dict__),202
 
 @app.route('/orden/estado/actualizar', methods=['POST'])
 def actualizar_estado():
